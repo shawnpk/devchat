@@ -48,8 +48,30 @@
       </div> <!-- end .container-fluid -->
     </nav>
 
-    <div class="container">
-      <%= yield %>
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %> fade in">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= message %>
+      </div>
+    <% end %>
+
+    <div class="fluid-container main-body">
+      <div class="row">
+        <div class="col-sm-2">
+          <% if user_signed_in? %>
+            <h4>Chatrooms</h4>
+            <ul>
+              <% current_user.chatrooms.each do |chatroom| %>
+                <li><%= link_to chatroom.name, '#' %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+        <div class="col-sm-10">
+          <%= yield %>
+        </div>
+      </div>
     </div>
 
   </body>

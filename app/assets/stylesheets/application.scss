@@ -16,3 +16,19 @@
 
 @import "bootstrap";
 @import "bootstrap-sprockets";
+
+.navbar {
+  border-radius: 0 !important;
+}
+
+nav.navbar.navbar-default {
+  margin-bottom: 0 !important;
+}
+
+.alert {
+  border-radius: 0 !important;
+}
+
+.main-body {
+  margin-top: 20px !important;
+}
